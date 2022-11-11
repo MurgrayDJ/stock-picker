@@ -31,7 +31,7 @@ def stock_picker(stocks)
 end
 
 def run_program
-    stocks = [17,3,6,9,15,"blue",6,1,10]
+    stocks = [17,3,6,9,15,8,6,1,10]
     p stock_picker(stocks)
 end
 
