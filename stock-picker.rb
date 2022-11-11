@@ -7,8 +7,17 @@ def stock_picker(stocks)
     last_index = stocks.length-1
 
     stocks.each_with_index do |buy_price, buy_day|
+        unless buy_price.is_a? Numeric 
+            next
+        end
+
         last_index.downto(buy_day) do |sell_day|
             sell_price = stocks[sell_day]
+
+            unless sell_price.is_a? Numeric 
+                next
+            end
+
             current_profit = sell_price - buy_price
             previous_profit = stocks[best_days[1]] - stocks[best_days[0]]
             
@@ -22,7 +31,7 @@ def stock_picker(stocks)
 end
 
 def run_program
-    stocks = [17,3,6,9,15,8,6,1,10]
+    stocks = [17,3,6,9,15,"blue",6,1,10]
     p stock_picker(stocks)
 end
 
